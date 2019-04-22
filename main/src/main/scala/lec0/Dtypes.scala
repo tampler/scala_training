@@ -18,12 +18,12 @@ object Dtypes extends App {
  
   arr foreach ( v => println (v) )
 
-  // immatable 
+  // immutable 
 
   val x = 5
   //x = 6 // won't compile
 
-  val vec  = Vector (1,2,3)
+  val vec  = Vector (7,8)
   vec foreach { v => println (v) } // traverse and print
   
   //vec(0) = -1 // won't compile

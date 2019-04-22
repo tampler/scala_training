@@ -10,10 +10,22 @@ libraryDependencies ++= Seq(
   "org.scalacheck" %% "scalacheck" % "1.14.0"
 )
 
-scalacOptions in ThisBuild ++= Seq(
-  "-language:_",
-  "-Ypartial-unification",
-  "-Xfatal-warnings"
+
+lazy val commonSettings = Seq(
+  scalacOptions ++= Seq(
+    "-language:_",
+    "-Ypartial-unification",
+    "-Xfatal-warnings"),
+  maxErrors := 5
 )
 
-addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full)
+
+lazy val main = project.in(file("main"))
+  .settings(commonSettings)
+
+lazy val home = project.in(file("home"))
+  .settings(commonSettings)
+
+lazy val grad = project.in(file("grad"))
+  .settings(commonSettings)
+
